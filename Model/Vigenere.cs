@@ -13,10 +13,6 @@ namespace Vigenere_ASP.Model
 
         public static string VigenereEncrypt(string input, string keyword)
         {
-            if (string.IsNullOrEmpty(input))
-            {
-                return "";
-            }
             input = input.ToLower();
             keyword = keyword.ToLower();
             string result = "";
@@ -25,8 +21,7 @@ namespace Vigenere_ASP.Model
             {
                 if (letters.Contains(symbol))
                 {
-                    int c = (Array.IndexOf(alphabet, symbol) +
-                    Array.IndexOf(alphabet, keyword[keyword_index])) % N;
+                    int c = (Array.IndexOf(alphabet, symbol) + Array.IndexOf(alphabet, keyword[keyword_index])) % N;
                     result += alphabet[c];
                     keyword_index++;
                 }
@@ -44,10 +39,6 @@ namespace Vigenere_ASP.Model
         }
         public static string VigenereDecrypt(string input, string keyword)
         {
-            if (string.IsNullOrEmpty(input))
-            {
-                return "";
-            }
             input = input.ToLower();
             keyword = keyword.ToLower();
             string result = "";

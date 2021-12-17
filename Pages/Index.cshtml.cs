@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-//using Aspose.Words;
 using System.IO;
 using Vigenere_ASP.Model;
 using Microsoft.AspNetCore.Http;
@@ -91,34 +90,22 @@ namespace Vigenere_ASP.Pages
             if (Mode == Modes[0])
             {
                 Result = Vigenere.VigenereDecrypt(VigenereModel.InputText, Key);
+                if (string.IsNullOrEmpty(Result))
+                {
+                    Result = "";
+                }
             }
             else if (Mode == Modes[1])
             {
                 Result = Vigenere.VigenereEncrypt(VigenereModel.InputText, Key);
+                if (string.IsNullOrEmpty(Result))
+                {
+                    Result = "";
+                }
             }
             VigenereModel.OutputText = Result;
             SavedResult = Result;
         }
-
-        /*public ActionResult OnPostDownload()
-        {
-            Document doc = new Document();
-            DocumentBuilder builder = new DocumentBuilder(doc);
-            builder.Write(SavedResult);
-
-            using (MemoryStream ms = new MemoryStream())
-            {
-                doc.Save(ms, SaveFormat.Docx);
-                return File(ms.ToArray(), "application/pdf", "out.docx");
-            }
-
-
-
-            *//* return File("/Files/TextFile.txt", "application/octet-stream",
-                 "Name.txt");*//*
-        }
-*/
-
 
         public ActionResult OnPostDownload()
         {
@@ -197,11 +184,6 @@ namespace Vigenere_ASP.Pages
             {
                 InputFile.CopyTo(fileStream);
             }
-
-            /*Document doc = new Document(file);
-            string processingResult = doc.ToString(SaveFormat.Text); // Aspose.Words
-            return processingResult;*/
-
 
             string processingResult = "";
             using (WordprocessingDocument wordDocument = WordprocessingDocument.Open(file, false))
