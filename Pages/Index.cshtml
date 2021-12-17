@@ -1,0 +1,67 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<meta charset="windows-1251" />
+
+<form method="post" enctype="multipart/form-data">
+
+    <div class="mb-3 row">
+        <div class="col-auto">
+            <label class="form-label">Введите текст или загрузите текстовый файл</label>
+        </div>
+        <div class="col-auto">
+            <input type="file" asp-for="InputFile" />
+            <input asp-page-handler="upload" type ="submit" value="Загрузить" />
+        </div>
+    </div>
+
+
+    <div class="mb-3">
+        <textarea asp-for="VigenereModel.InputText" class="form-control" id="inputText" rows="6" placeholder="Текст...">@Model.VigenereModel.InputText</textarea>
+    </div>
+
+
+    <div class="mb-3 row">
+        <div class="col-auto">
+            <label class="col-form-label">Введите ключ</label>
+        </div>
+        <div class="col-auto">
+            <input id="vigenereKey" asp-for="VigenereModel.Key" class="form-control" placeholder="Ключ...">
+        </div>
+        <div class="col-auto form-check form-check-inline">
+            <input class="form-check-input" asp-for="VigenereModel.Mode" type="radio" id="radioD" value="@Model.Modes[0]">
+            <label class="form-check-label" for="radioD">@Model.Modes[0]</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" asp-for="VigenereModel.Mode" type="radio" id="radioE" value="@Model.Modes[1]">
+            <label class="form-check-label" for="radioE">@Model.Modes[1]</label>
+        </div>
+        <div class="col-auto">
+            <button asp-page-handler="calc" class="btn btn-primary">Рассчитать</button>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <textarea class="form-control" id="outputText" rows="6" readonly>@Model.Result</textarea>
+    </div>
+
+    <div class="mb-3 row">
+        <div class="col-auto">
+            <button asp-page-handler="download" class="btn btn-primary">Скачать файл</button>
+        </div>
+        <div class="col-auto">
+            <input id="outFileName" asp-for="VigenereModel.OutFileName" class="form-control" placeholder="Имя файла...">
+        </div>
+        <div class="col-auto form-check form-check-inline">
+            <input class="form-check-input" asp-for="VigenereModel.OutFileExt" type="radio" id="radioTXT" value=".txt">
+            <label class="form-check-label" for="radioTXT">.txt</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" asp-for="VigenereModel.OutFileExt" type="radio" id="radioDOCX" value=".docx">
+            <label class="form-check-label" for="radioDOCX">.docx</label>
+        </div>
+    </div>
+</form>
