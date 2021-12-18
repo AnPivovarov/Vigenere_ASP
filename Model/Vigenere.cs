@@ -21,7 +21,8 @@ namespace Vigenere_ASP.Model
             {
                 if (letters.Contains(symbol))
                 {
-                    int c = (Array.IndexOf(alphabet, symbol) + Array.IndexOf(alphabet, keyword[keyword_index])) % N;
+                    int c = (Array.IndexOf(alphabet, symbol) + 
+                        Array.IndexOf(alphabet, keyword[keyword_index])) % N;
                     result += alphabet[c];
                     keyword_index++;
                 }

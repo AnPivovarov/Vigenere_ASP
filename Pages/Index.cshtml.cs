@@ -87,21 +87,17 @@ namespace Vigenere_ASP.Pages
                 Key = "скорпион";
             }
             Mode = VigenereModel.Mode;
+            if (VigenereModel.InputText == null)
+            {
+                VigenereModel.InputText = "";
+            }
             if (Mode == Modes[0])
             {
                 Result = Vigenere.VigenereDecrypt(VigenereModel.InputText, Key);
-                if (string.IsNullOrEmpty(Result))
-                {
-                    Result = "";
-                }
             }
             else if (Mode == Modes[1])
             {
                 Result = Vigenere.VigenereEncrypt(VigenereModel.InputText, Key);
-                if (string.IsNullOrEmpty(Result))
-                {
-                    Result = "";
-                }
             }
             VigenereModel.OutputText = Result;
             SavedResult = Result;
