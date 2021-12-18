@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31911.196
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vigenere_ASP", "Vigenere_ASP.csproj", "{B14DB33F-1666-423E-9C2D-23C06764AF8C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vigenere_ASP", "Vigenere_ASP\Vigenere_ASP.csproj", "{B14DB33F-1666-423E-9C2D-23C06764AF8C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XUnit_Vigenere_ASP", "XUnit_Vigenere_ASP\XUnit_Vigenere_ASP.csproj", "{1BBC2976-99F8-417D-870C-CF2F04D8BEEF}"
 EndProject
